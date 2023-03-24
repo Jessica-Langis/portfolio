@@ -353,8 +353,8 @@ ul#nav li.current a { color: #f78635; }
    border-radius: 3px 0 0 3px;
 }
 
-.datamodeling {
-  	width: 80%;
+.bi {
+  	width: 85%;
   	-moz-animation: photoshop 2s ease;
   	-webkit-animation: photoshop 2s ease;
 }
@@ -363,12 +363,12 @@ ul#nav li.current a { color: #f78635; }
   	-moz-animation: illustrator 2s ease;
   	-webkit-animation: illustrator 2s ease;
 }
-.pmbok {
-  	width: 78%;
+.marketresearch {
+  	width: 40%;
   	-moz-animation: wordpress 2s ease;
   	-webkit-animation: wordpress 2s ease;
 }
-.jira {
+.pm {
   	width: 90%;
   	-moz-animation: css 2s ease;
   	-webkit-animation: css 2s ease;
