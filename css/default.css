@@ -469,7 +469,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
    font: 16px/30px 'opensans-bold', sans-serif;
-   background: #11ABB0;
+   background: #f78635;
    display: inline-block;
 	text-decoration: none;
    letter-spacing: 0;
