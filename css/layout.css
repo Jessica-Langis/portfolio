@@ -9,6 +9,7 @@
    a. General Styles
    b. Header Styles
    c. About Section
+   c.1 What I do Section
    d. Resume Section
    e. Portfolio Section
    f. Call To Action Section
@@ -191,7 +192,7 @@ ul#nav li.current a { color: #f78635; }
 /* ------------------------------------------------------------------ */
 
 #about {
-   background: #01040bc4;
+   background: #04121b;
    padding-top: 90px;
    padding-bottom: 66px;
    overflow: hidden;
@@ -234,6 +235,58 @@ ul#nav li.current a { color: #f78635; }
    color: #fff;
 }
 #about .download .button i {
+   margin-right: 15px;
+   font-size: 20px;
+}
+
+/* ------------------------------------------------------------------ */
+/* c. What I do Best Section
+/* ------------------------------------------------------------------ */
+
+#whatidobest {
+   background: #01040bc4;
+   padding-top: 90px;
+   padding-bottom: 66px;
+   overflow: hidden;
+}
+
+#whatidobest a, #whatidobest a:visited  { color: #fff; }
+#whatidobest a:hover, #whatidobest a:focus { color: #f78635; }
+
+#whatidobest h2 {
+   font: 22px/30px 'opensans-bold', sans-serif;
+   color: #fff;
+   margin-bottom: 12px;
+}
+#whatidobest p {
+   line-height: 30px;
+   color: #fff;
+}
+#whatidobest p span {
+   color: #f39f62;
+   line-height: 30px;
+}
+#whatidobest .profile-pic {
+   position: relative;
+   width: 120px;
+   height: 120px;
+   border-radius: 100%;
+}
+#whatidobest .contact-details { width: 41.66667%; }
+#whatidobest .download {
+   width: 58.33333%;
+   padding-top: 6px;
+}
+#abouwhatidobestt .main-col { padding-right: 5%; }
+#whatidobest .download .button {
+   margin-top: 6px;
+   background: #323938;
+}
+#whatidobest .download .button:hover {
+   background: #f78635;
+   color: #fff;
+}
+#whatidobest .download .button i {
    margin-right: 15px;
    font-size: 20px;
 }
@@ -816,7 +869,7 @@ call-to-action .button {
 /* ------------------------------------------------------------------ */
 
 #contact {
-   background: #01040bc4;
+   background: #10232f;
    padding-top: 96px;
    padding-bottom: 102px;
    color: #636363;
@@ -871,8 +924,8 @@ call-to-action .button {
 #contact textarea,
 #contact select {
    padding: 18px 20px;
-	color: #eee;
-	background: #373233;
+	color: #fff;
+	background: #000911;
 	margin-bottom: 42px;
 	border: 0;
 	outline: none;
@@ -883,8 +936,8 @@ call-to-action .button {
 #contact input:focus,
 #contact textarea:focus,
 #contact select:focus {
-	color: #fff;
-	background-color: #f78635;
+	color: #000000;
+	background-color: #da915e;
 }
 #contact button.submit {
 	text-transform: uppercase;
