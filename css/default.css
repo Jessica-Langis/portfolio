@@ -629,6 +629,12 @@ input[type="checkbox"] { display: inline; }
     float: none;
     margin: 0 auto;
 }
+.column.right, .columns.right  {
+   position: relative;
+   padding: 20px 0;
+   min-height: 1px;
+   float: right;
+}
 
 /* removed gutters */
 .row.collapsed > .column,
@@ -651,6 +657,7 @@ input[type="checkbox"] { display: inline; }
 .row .ten         { width: 83.33333%; }
 .row .eleven      { width: 91.66667%; }
 .row .twelve      { width: 100%; }
+.row .thirteen    { width: 25%; float:right;}
 
 /* Offsets */
 .row .offset-1    { margin-left: 8.33333%; }

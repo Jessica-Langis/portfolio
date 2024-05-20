@@ -10,6 +10,7 @@
    b. Header Styles
    c. About Section
    c.1 What I do Section
+   c.2 Outside the Office Section
    d. Resume Section
    e. Portfolio Section
    f. Call To Action Section
@@ -240,7 +241,7 @@ ul#nav li.current a { color: #f78635; }
 }
 
 /* ------------------------------------------------------------------ */
-/* c. What I do Best Section
+/* c.1 What I do Best Section
 /* ------------------------------------------------------------------ */
 
 #whatidobest {
@@ -270,7 +271,7 @@ ul#nav li.current a { color: #f78635; }
    position: relative;
    width: 250px;
    height: 300px;
-   border-radius: 25%;
+   border-radius: 15%;
 }
 #whatidobest .contact-details { width: 41.66667%; }
 #whatidobest .download {
@@ -287,6 +288,59 @@ ul#nav li.current a { color: #f78635; }
    color: #fff;
 }
 #whatidobest .download .button i {
+   margin-right: 15px;
+   font-size: 20px;
+}
+
+/* ------------------------------------------------------------------ */
+/* c.2 Outside the Office
+/* ------------------------------------------------------------------ */
+
+#outsidetheoffice {
+   background: #04121b;
+   padding-top: 90px;
+   padding-bottom: 66px;
+   overflow: hidden;
+}
+
+#outsidetheoffice a, #outsidetheoffice a:visited  { color: #fff; }
+#outsidetheoffice a:hover, #outsidetheoffice a:focus { color: #f78635; }
+
+#outsidetheoffice h2 {
+   font: 22px/30px 'opensans-bold', sans-serif;
+   color: #fff;
+   margin-bottom: 12px;
+}
+#outsidetheoffice p {
+   line-height: 30px;
+   color: #fff;
+}
+#outsidetheoffice p span {
+   color: #f39f62;
+   line-height: 30px;
+}
+#outsidetheoffice .outside-pic {
+   width: 600px;
+   height: 300px;
+   border-radius: 15%;
+}
+#outsidetheoffice .contact-details { width: 41.66667%; }
+#outsidetheoffice .download {
+   width: 58.33333%;
+   padding-top: 6px;
+}
+#outsidetheoffice .main-col { padding-right: 5%; }
+#outsidetheoffice .right-col {padding-left: 550%}
+#outsidetheoffice .download .button {
+   margin-top: 6px;
+   background: #323938;
+   
+}
+#outsidetheoffice .download .button:hover {
+   background: #f78635;
+   color: #fff;
+}
+#outsidetheoffice .download .button i {
    margin-right: 15px;
    font-size: 20px;
 }
