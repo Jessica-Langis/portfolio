@@ -423,20 +423,22 @@ ul#nav li.current a { color: #f78635; }
 .bars {
 	width: 95%;
 	float: left;
-	padding: 0;
+   padding:    0px;
 	text-align: left;
 }
 .bars .skills {
-  	margin-top: 36px;
+  	margin-top: 80px;
    list-style: none;
+ 
 }
 .bars li {
    position: relative;
-  	margin-bottom: 60px;
+  	margin-bottom: 70px;
+   margin-top: 50px;
   	background: #b3bdbb;
-  	height: 42px;
+  	height: 30px;
   	border-radius: 3px;
-}
+   }
 .bars li em {
 	font: 15px 'opensans-bold', sans-serif;
    color: #01040b;
@@ -444,25 +446,32 @@ ul#nav li.current a { color: #f78635; }
    letter-spacing: 2px;
 	font-weight: normal;
    position: relative;
-	top: -36px;
+	top: -55px;
+}
+.bars li p {
+	font: 13px 'opensans', sans-serif;
+   color: #01040b;
+   letter-spacing: 2px;
+	font-weight: normal;
+   position: relative;
+	top: -55px;
 }
 .bar-expand {
    position: absolute;
    left: 0;
    top: 0;
-
    margin: 0;
    padding-right: 24px;
   	background: #01040b;
    display: inline-block;
-  	height: 42px;
+  	height: 30px;
    line-height: 42px;
    border-radius: 3px 0 0 3px;
 }
 
 .bi {
   	width: 85%;
-  	-moz-animation: photoshop 2s ease;
+   -moz-animation: photoshop 2s ease;
   	-webkit-animation: photoshop 2s ease;
 }
 .webdevelopment {
@@ -536,10 +545,10 @@ ul#nav li.current a { color: #f78635; }
   0%   { width: 0px;  }
   100% { width: 80%;  }
 }
-/*@-webkit-keyframes jquery {
+@-webkit-keyframes jquery {
   0%   { width: 0px;  }
   100% { width: 50%;  }
-}*/
+}
 
 /* ------------------------------------------------------------------ */
 /* e. Portfolio Section
