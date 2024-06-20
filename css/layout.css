@@ -297,9 +297,9 @@ ul#nav li.current a { color: #f78635; }
 /* ------------------------------------------------------------------ */
 
 #outsidetheoffice {
-   background: #04121b;
-   padding-top: 90px;
-   padding-bottom: 100px;
+   background: #0a1e2b;
+   padding-top: 120px;
+   padding-bottom: 120px;
    overflow: hidden;
 }
 
@@ -309,7 +309,7 @@ ul#nav li.current a { color: #f78635; }
 #outsidetheoffice h2 {
    font: 22px/30px 'opensans-bold', sans-serif;
    color: #fff;
-   margin-bottom: 12px;
+   margin-bottom: 30px;
 }
 #outsidetheoffice p {
    line-height: 30px;
@@ -401,14 +401,14 @@ ul#nav li.current a { color: #f78635; }
 /*----------------------------------------------*/
 
 #skills {
-   background: #fff;
-   padding-top: 50px;
-   padding-bottom: 72px;
+   background: #04121b;
+   padding-top: 100px;
+   padding-bottom: 100px;
    overflow: hidden;
 }
 
 #skills a, #skills a:visited  { color: #f78635; }
-#skills a:hover, #skills a:focus { color: #313131; }
+#skills a:hover, #skills a:focus { color: #faf6f6; }
 
 #skills h1 {
    font: 18px/24px 'opensans-bold', sans-serif;
@@ -435,13 +435,13 @@ ul#nav li.current a { color: #f78635; }
    position: relative;
   	margin-bottom: 70px;
    margin-top: 50px;
-  	background: #b3bdbb;
+  	background: #fff;
   	height: 30px;
   	border-radius: 3px;
    }
 .bars li em {
 	font: 15px 'opensans-bold', sans-serif;
-   color: #01040b;
+   color: #fff;
 	text-transform: uppercase;
    letter-spacing: 2px;
 	font-weight: normal;
@@ -450,7 +450,7 @@ ul#nav li.current a { color: #f78635; }
 }
 .bars li p {
 	font: 13px 'opensans', sans-serif;
-   color: #01040b;
+   color: #d8f4fa;
    letter-spacing: 2px;
 	font-weight: normal;
    position: relative;
@@ -462,7 +462,7 @@ ul#nav li.current a { color: #f78635; }
    top: 0;
    margin: 0;
    padding-right: 24px;
-  	background: #01040b;
+  	background: #f88c40;
    display: inline-block;
   	height: 30px;
    line-height: 42px;
@@ -932,7 +932,7 @@ call-to-action .button {
 /* ------------------------------------------------------------------ */
 
 #contact {
-   background: #10232f;
+   background: #162f3e;
    padding-top: 96px;
    padding-bottom: 102px;
    color: #636363;
