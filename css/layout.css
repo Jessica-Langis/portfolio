@@ -68,6 +68,7 @@ header .banner-text h1 {
 }
 header .banner-text h3 {
    font: 15px/1.5em 'librebaskerville-regular', serif;
+   font-weight: bold;
    color: rgb(252, 251, 248);
    background-color: #161415b5;
    margin: 0 auto;
@@ -209,6 +210,7 @@ ul#nav li.current a { color: #f78635; }
 }
 #about p {
    line-height: 30px;
+   font-weight: bold;
    color: #bbcfca;
 }
 #about p span {
@@ -262,14 +264,15 @@ ul#nav li.current a { color: #f78635; }
 #whatidobest p {
    line-height: 30px;
    color: #fff;
+   font-weight: bold;
 }
 #whatidobest p span {
-   color: #f39f62;
+   color: #ffb27b;
    line-height: 30px;
 }
 #whatidobest .profile-pic {
    position: relative;
-   width: 250px;
+   width: 200px;
    height: 300px;
    border-radius: 15%;
 }
@@ -313,6 +316,7 @@ ul#nav li.current a { color: #f78635; }
 }
 #outsidetheoffice p {
    line-height: 30px;
+   font-weight: bold;
    color: #fff;
 }
 #outsidetheoffice p span {
@@ -320,7 +324,7 @@ ul#nav li.current a { color: #f78635; }
    line-height: 30px;
 }
 #outsidetheoffice .outside-pic {
-   width: 600px;
+   width: 500px;
    height: 300px;
    border-radius: 15%;
 }
@@ -413,9 +417,11 @@ ul#nav li.current a { color: #f78635; }
 #skills h1 {
    font: 18px/24px 'opensans-bold', sans-serif;
    text-transform: uppercase;
+   font-weight: bold;
    letter-spacing: 1px;
 }
 #skills h1 span {
+   font-weight: bold;
    border-bottom: 3px solid #f78635;
    padding-bottom: 6px;
 }
@@ -429,6 +435,7 @@ ul#nav li.current a { color: #f78635; }
 #skills  p {
       line-height: 30px;
       color: #fff;
+      font-weight: bold;
       font-size: 14px;
    }
 /*   
