@@ -67,7 +67,7 @@ header .banner-text h1 {
    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
 }
 header .banner-text h3 {
-   font: 15px/1.5em 'librebaskerville-regular', serif;
+   font: 14px/1.5em 'librebaskerville-regular', serif;
    color: rgb(252, 251, 248);
    background-color: #161415a4;
    margin: 0 auto;
@@ -420,6 +420,18 @@ ul#nav li.current a { color: #f78635; }
    padding-bottom: 6px;
 }
 
+#skills h5 {
+   font: 18px/24px 'opensans-bold', sans-serif;
+   padding-bottom: 6px;
+   color: #f78635;
+}
+
+#skills  p {
+      line-height: 30px;
+      color: #fff;
+      font-size: 14px;
+   }
+/*   
 .bars {
 	width: 95%;
 	float: left;
@@ -901,7 +913,7 @@ call-to-action .button {
     margin: 0 6px;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    display: inline;
 }
 .flex-control-paging li a {
     width: 12px;
