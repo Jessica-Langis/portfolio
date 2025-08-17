@@ -28,7 +28,7 @@
 
    <!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="favicon.png">
+	<link rel="shortcut icon" href="favicon.png" sizes="32x32" type="image/png">
 
 </head>
 
@@ -80,29 +80,47 @@
          <div class="row">
             <p></p>
          </div>
-            <img class="profile-pic"  src="images/profilepic2.png.jpg" alt="" />
+            <img class="profile-pic"  src="images/profilepicfinal.jpg" alt="" />
          </div>
 
          <div class="nine columns main-col">
 
-            <h2>What I Do Best</h2>
+            <!-- <h2>What I Do Best</h2>
 
             <p>
-               <span>Repetitive tasks drive me nuts—so I automate them.</span>
+               If there's a process that feels clunky or slow, <span>I see an opportunity to simplify and automate.
+               </span>
             </p>
             <p>
-               One of my favorite projects involved eliminating a bottleneck where analysts spent hours pulling reports and manually creating work items in Azure DevOps. Instead of accepting the tedious process, I built a Power Apps gallery, embedded it directly into a Power BI report in place of a static table, and connected it to Azure DevOps. This allowed end-users to create work items with a single click—right from within Power BI, <span>turning insights into action instantly.</span>
+               One of my favorite projects involved eliminating a bottleneck where product owners would potentially spend hours pulling reports and manually creating work items in Azure DevOps. It was clunky and time-consuming, so I built a Power Apps gallery, dropped it into Power BI, and wired it to DevOps. With one click, a ticket was created straight from the report. <span>No extra steps, no wasted time.</span>
             </p>
             <p>
                By leveraging Power Automate, SQL, and API integrations, I ensure that workflows run smoothly, systems talk to each other, and teams spend less time on manual work and more time on high-value tasks. <span>If there's a process that's slowing things down, I find a way to automate, optimize, and simplify.</span>
                </p>
                
             
-            <br>
+            <br>-->
+
+
+<h2>What I Do Best</h2>
+
+<p>
+   <span>I like finding smarter ways to get work done.</span> If a process is dragging people down or eating up too much time, I try to find a way to make it smoother and faster. <span>It's all about simplifying and automating.</span>
+</p>
+<p>
+   One of the projects I'm most proud of took a routine chore that used to waste hours every week and turned it into a <span>one-click solution</span>. By rethinking how tools like Power BI, Power Apps, and DevOps fit together, I was able to cut out the grind and let people <span>focus on the work that actually matters.</span>
+</p>
+<p>
+   That's the part of my job I enjoy most—spotting those hidden inefficiencies, connecting the right pieces, and building solutions that feel natural to use. <span>It's not just about saving time, it's about making the day a little smoother for everyone involved.</span>
+</p>
+
+
+<br>
 
  
 
-         </div> <!-- end .main-col -->
+         </div> 
+   <!-- end .main-col -->
 
       </div>
 
@@ -162,20 +180,21 @@
                   <img class="outside-pic"  src="images/lake.jpg" alt="" />
                </div>
       
-            <div class="nine column main-col">
+            <div class="nine columns main-col">
                
                <h2>Outside the Office</h2>
 
                <p>
-                  I've always been drawn to the mix of adventure and relaxation. 
+                  I like mixing energy with calm. Some days that means being outside with my dogs and family, soaking up fresh air and chasing little adventures. Other days, it's just as good to kick back and enjoy the quiet.               
                </p>
                <p>
-                  I love spending time outside whenever I can — whether it be a scenic drive, a quiet walk, or just soaking in the beauty of the PNW. At the same time, I enjoy the simple things, like a good book, experimenting with new recipes, or catching up with friends and family. 
+                  Music's the other constant. It sets the tone. Loud when I want energy, quiet when I want focus. Either way, it's the backdrop that keeps things from feeling routine.
                </p>
                <p>
-                  It's the small moments that make life meaningful.
+                At the end of the day, I'm not chasing complicated. I'd rather cut through the clutter, focus on what actually matters, and keep life sharp, steady, and a little unpredictable.
                </p>
-   </div>
+
+         </div> <!-- end .main-col -->
   
 
                 <br>
@@ -198,17 +217,23 @@
       <div class="row">
 
          <div class="twelve columns main-col">
-            
-           <h1><div style="text-align: center">
-              Send me a message!
-            </h1></div>
+   
+            <div style="text-align: center">
+      
+               <h1>
+      
+                  Send me a message!
+      
+               </h1>
+      
+            </div>
+          
          </div>
+      </div> <!-- end row -->
 
-      </div>
+   <div class="row">
 
-      <div class="row">
-
-         <div class="twelve columns">
+      <div class="twelve columns">
 <p></p>
             <!-- form -->
             <form
@@ -218,7 +243,7 @@
                   <label for="contactName">
                      Your Name<span class="required">*</span> </label>
                      
-                     <input type="text" value="" size="35" name="contactName" id="contactName">
+                     <input type="text" value="" size="35" name="contactName" id="contactName" required>
                   
                </div>
 
@@ -226,7 +251,7 @@
                   <label for="contactEmail">
                      Your Email  <span class="required">*</span></label>
                     
-                  <input type="email" value="" size="35" name="contactEmail" id="contactEmail">
+                  <input type="email" value="" size="35" name="contactEmail" id="contactEmail" required>
                  
                </div>
 
@@ -234,7 +259,7 @@
                   <label for="contactSubject">
                      Subject <span class="required">*</span> </label>
                      
-                  <input type="text" value="" size="35" name="contactSubject" id="contactSubject">
+                  <input type="text" value="" size="35" name="contactSubject" id="contactSubject" required>
                 
                </div>
 
@@ -242,7 +267,7 @@
                   <label for="contactMessage">
                      Message   <span class="required">*</span>  </label>
                      
-                  <textarea cols="50" rows="2" id="contactMessage" name="contactMessage" id="contactMessage"></textarea>
+                  <textarea cols="50" rows="2" id="contactMessage" name="contactMessage" required></textarea>
               
                </div>
 
@@ -280,8 +305,8 @@
 
    <!-- Java Script
    ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <!--<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>-->
    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 
    <script src="js/jquery.flexslider.js"></script>
