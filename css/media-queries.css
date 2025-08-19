@@ -18,7 +18,11 @@
       letter-spacing: -1px;
       margin: 0 auto 12px auto;
    }
-
+   header .banner-text h3 {
+      font: 45px/1.1em 'opensans', sans-serif;
+      letter-spacing: -1px;
+      margin: 0 auto 10px auto;
+   }
 }
 
 /* screenwidth less than 900px
@@ -33,8 +37,8 @@
       letter-spacing: -1px;      
    }
    header .banner-text h3 {
-      font: 17px/1.9em 'librebaskerville-regular', serif;
-      width: 80%;
+      font: 36px/1.1em 'opensans', serif;
+      width: 60%;
    }
    header .banner-text hr {
       width: 65%;
@@ -198,8 +202,8 @@
    }
    header .banner-text h1 { font: 68px/1.1em 'opensans-bold', sans-serif; }
    header .banner-text h3 {
-      font: 16px/1.9em 'librebaskerville-regular', serif;
-      width: 85%;
+      font: 30px/1.1em 'opensans', serif;
+      width: 60%;
    }
    header .banner-text hr {
       width: 80%;
@@ -373,8 +377,8 @@
       margin: 0 auto 24px auto;
    }
    header .banner-text h3 {
-      font: 14px/1.9em 'librebaskerville-regular', sans-serif;
-      width: 90%;
+      font: 24px/1.6em 'opensans', sans-serif;
+      width: 60%;
    }
   
    /* header social links */
