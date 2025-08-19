@@ -188,7 +188,6 @@ ul#nav li a {
 	text-decoration: none;
    text-align: left;
    color: #fff;
-
 	-webkit-transition: color .2s ease-in-out;
 	-moz-transition: color .2s ease-in-out;
 	-o-transition: color .2s ease-in-out;
@@ -198,7 +197,10 @@ ul#nav li a {
 
 ul#nav li a:active { background-color: transparent !important; }
 ul#nav li.current a { color: #f78635; }
-
+ul#nav li a:hover, ul#nav li a:focus {
+   color: #f8b17f;
+   background-color: transparent !important;
+}
 
 /* ------------------------------------------------------------------ */
 /* c. About Section
