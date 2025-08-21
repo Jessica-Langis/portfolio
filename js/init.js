@@ -183,6 +183,58 @@
 });
 
 
+(function() {
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    // Basic honeypot check
+    const hp = form.querySelector('input[name="company"]');
+    if (hp && hp.value.trim() !== '') {
+      e.preventDefault();
+      return; // silent drop on bots
+    }
+
+    // Map _replyto to visible email for Formspree headers
+    const replyTo = form.querySelector('#contactEmail')?.value || '';
+    const hiddenReply = form.querySelector('input[name="_replyto"]');
+    if (hiddenReply) hiddenReply.value = replyTo;
+
+    // If fetch is available, do AJAX submit
+    if (window.fetch) {
+      e.preventDefault();
+      statusEl.className = 'form-status';
+      statusEl.textContent = 'Sending…';
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          statusEl.className = 'form-status success';
+          statusEl.textContent = 'Thanks! Your message has been sent.';
+        } else {
+          statusEl.className = 'form-status error';
+          statusEl.textContent = 'Something went wrong. Please try again.';
+        }
+      } catch (err) {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = 'Network error. Please try again.';
+      }
+    }
+    // else: no JS enhancement — browser will submit normally to Formspree
+  });
+})();
+
+
 
 
 

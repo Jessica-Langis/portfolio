@@ -32,6 +32,7 @@
 
 </head>
 
+
 <body>
 
    <!-- Header
@@ -288,63 +289,122 @@
 
       <!-- Contact Section
    ================================================== -->
-   <section id="contact">
+   <!-- Contact Section NEW -->
+<section id="contact" class="contact-section">
+  <div class="row">
 
-      <div class="row">
+    <!-- Left panel: title + quick points -->
+    <div class="four columns header-col contact-intro">
+      <h1 class="contact-title"><span>Send me a message</span></h1>
+      <p class="contact-subtitle">
+         Have a project, a role, or just a question? I'm happy to chat.
+      </p>
 
-         <h2><span>Send me a message!</span> </h2>
-          
-      </div> <!-- end row -->
+      <!--<ul class="contact-chips">
+        <li>Power BI & BI Strategy</li>
+        <li>Automation & Workflows</li>
+        <li>Data Modeling</li>
+      </ul>
 
-   <div class="row">
+      <p class="contact-note">
+        I typically reply within a business day.
+      </p>-->
+    </div>
 
-      <div class="twelve columns">
-<p></p>
-            <!-- form -->
-            <form
-            action="https://formspree.io/f/xzbqdypk" method="POST" name="contactForm" id="contactForm">
+    <!-- Right panel: form -->
+    <div class="eight columns main-col">
+      <div class="contact-card">
+        <form
+  action="https://formspree.io/f/xzbqdypk"
+  method="POST"
+  id="contactForm"
+  name="contactForm"
+  accept-charset="UTF-8"
+>
+  <!-- Spam honeypot (hidden from users)-->
+  <input type="text" name="website" style="display:none">
+  <!-- Optional fixed subject for your inbox triage -->
+  <input type="hidden" name="subject" value="Portfolio contact (jessica-langis.github.io)">
 
-               <div>
-                  <label for="contactName">
-                     Your Name<span class="required">*</span> </label>
-                     
-                     <input type="text" value="" size="35" name="contactName" id="contactName" required>
-                  
-               </div>
+  <!-- Name -->
+  <div class="form-field">
+    <label for="contactName">Your Name <span class="required">*</span></label>
+    <input
+      type="text"
+      id="contactName"
+      name="name"
+      required
+      autocomplete="name"
+      maxlength="80"
+      placeholder="Type your name here"
+    />
+  </div>
 
-               <div>
-                  <label for="contactEmail">
-                     Your Email  <span class="required">*</span></label>
-                    
-                  <input type="email" value="" size="35" name="contactEmail" id="contactEmail" required>
-                 
-               </div>
+  <!-- Email -->
+  <div class="form-field">
+    <label for="contactEmail">Your Email <span class="required">*</span></label>
+    <input
+      type="email"
+      id="contactEmail"
+      name="email"
+      required
+      autocomplete="email"
+      inputmode="email"
+      placeholder="Email Address"
+    />
+  </div>
 
-               <div>
-                  <label for="contactSubject">
-                     Subject <span class="required">*</span> </label>
-                     
-                  <input type="text" value="" size="35" name="contactSubject" id="contactSubject" required>
-                
-               </div>
+  <!-- Subject (optional, shown to user) -->
+  <div class="form-field">
+    <label for="contactSubject">Subject</label>
+    <input
+      type="text"
+      id="contactSubject"
+      name="topic"
+      maxlength="120"
+      placeholder="Quick question about your work"
+    />
+  </div>
 
-               <div>
-                  <label for="contactMessage">
-                     Message   <span class="required">*</span>  
-                  </label>                     
-                  <textarea cols="50" rows="2" id="contactMessage" name="contactMessage" required>
-                  </textarea>
-              
-               </div>
+  <!-- Message -->
+  <div class="form-field">
+    <label for="contactMessage">Message <span class="required">*</span></label>
+    <textarea
+      id="contactMessage"
+      name="message"
+      required
+      rows="6"
+      maxlength="3000"
+      placeholder="Hi Jessica — I'd love to connect about…"
+    ></textarea>
+  </div>
 
-               <div>
-                  <button type="submit">Send</button>
-               </div>
-         </form>
+
+
+  <!-- Formspree routing helpers -->
+  <!-- Reply-to header: maps to your “From” in Formspree dashboard -->
+  <input type="hidden" name="_replyto" value="">
+
+  <!-- Success redirect fallback (no-JS) -->
+  <!-- Create /thanks.html if you prefer redirect over inline message -->
+  <!-- <input type="hidden" name="_next" value="https://your-domain/thanks.html"> -->
+
+  <button type="submit" class="button">Send</button>
+
+  <!-- Inline status UI (for both no‑JS and JS) -->
+  <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+</form>
+
       </div>
-   </div>
+    </div>
 
-</section> <!-- Contact Section End-->
+  </div>
+</section>
+
+   
+  
+
+   <!-- Contact Section End-->
 
 
    <!-- footer
