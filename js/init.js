@@ -235,9 +235,33 @@
 })();
 
 
+/*----------------------------------------------------*/
+/*	Reveal paragraphs on scroll*/
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Titles: reveal as soon as they touch the viewport
+  const titles = document.querySelectorAll(".reveal-title");
+  const titleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        titleObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.01 }); // sooner
 
+  titles.forEach(t => titleObserver.observe(t));
 
+  // Paragraphs: reveal a bit later, once more is visible
+  const paras = document.querySelectorAll(".reveal-para");
+  const paraObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        paraObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 1 }); // later than title
 
-
-
+  paras.forEach(p => paraObserver.observe(p));
+});

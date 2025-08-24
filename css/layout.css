@@ -564,6 +564,45 @@ ul#nav li a:hover, ul#nav li a:focus {
   #skills-modern .skill-media { height: 180px; }
 }
 
+/* -------Paragraph Fade In ----------------------------------------------------------- */
+.reveal-para {
+  opacity: 0;
+  transform: translateY(20px); /* start slightly below */
+  transition: opacity 0.6s ease, transform 0.9s ease;
+  margin-bottom: 1.5rem;
+}
+
+.reveal-para.visible {
+  opacity: 1;
+  transform: translateY(0); /* slides up into place */
+}
+/* Title: quicker + smaller motion */
+.reveal-title {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.reveal-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Paragraphs: reveal after the title, a touch slower */
+.reveal-para {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+  margin-bottom: 1.5rem;
+}
+.reveal-para.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: slight stagger between paragraphs */
+.reveal-para:nth-child(1) { transition-delay: .05s; }
+.reveal-para:nth-child(2) { transition-delay: .15s; }
+.reveal-para:nth-child(3) { transition-delay: .25s; }
 
 /* === Skills bars === */
 
