@@ -563,6 +563,83 @@ ul#nav li a:hover, ul#nav li a:focus {
 @media (max-width: 520px) {
   #skills-modern .skill-media { height: 180px; }
 }
+/* === Hover reinforcement for skill cards === */
+
+#skills-modern .skill-card {
+  position: relative;                           /* enables overflow animations */
+  isolation: isolate;                           /* keeps shadow crisp */
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+  will-change: transform;
+}
+
+/* media motion */
+#skills-modern .skill-media {
+  transition: transform .35s ease, opacity .35s ease;
+  will-change: transform;
+}
+
+/* underline starts collapsed */
+#skills-modern .skill-underline {
+  display: block;
+  transform-origin: 0 50%;
+  transform: scaleX(.25);
+  opacity: .85;
+  transition: transform .28s ease, opacity .28s ease;
+}
+
+/* tag pills */
+#skills-modern .skill-tags li {
+  transition: border-color .22s ease, background .22s ease, color .22s ease;
+}
+
+/* hover/focus state (mouse & keyboard) */
+#skills-modern .skill-card:hover,
+#skills-modern .skill-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.45);
+  border-color: rgba(255,255,255,.14);
+}
+
+/* image shifts up just a touch */
+#skills-modern .skill-card:hover .skill-media,
+#skills-modern .skill-card:focus-within .skill-media {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* underline grows to full width */
+#skills-modern .skill-card:hover .skill-underline,
+#skills-modern .skill-card:focus-within .skill-underline {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* tags brighten */
+#skills-modern .skill-card:hover .skill-tags li,
+#skills-modern .skill-card:focus-within .skill-tags li {
+  border-color: rgba(232,117,10,.55);
+  background: rgba(232,117,10,.10);
+  color: #fff;
+}
+
+/* keyboard focus ring on the whole card */
+#skills-modern .skill-card:focus-within {
+  outline: 2px solid rgba(232,117,10,.55);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #skills-modern .skill-card,
+  #skills-modern .skill-media,
+  #skills-modern .skill-underline,
+  #skills-modern .skill-tags li {
+    transition: none;
+  }
+}
 
 /* -------Paragraph Fade In ----------------------------------------------------------- */
 .reveal-para {
@@ -1164,7 +1241,8 @@ call-to-action .button {
 .form-field label{ 
    display:block; 
    margin-bottom:6px; 
-   font-weight:600 
+   font-weight:600; 
+   color:#ced4db;
 }
 .form-field input[type="text"],
 .form-field input[type="email"],
@@ -1173,7 +1251,7 @@ call-to-action .button {
   padding:12px 14px; 
   border:1px solid #2b3b46;
   background: var(--panel-soft); 
-  color:#e9eef2; 
+  color:#a1c8d6; 
   border-radius:8px;
 }
 .form-field input:focus, .form-field textarea:focus{

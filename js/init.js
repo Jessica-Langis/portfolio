@@ -220,7 +220,7 @@
         if (res.ok) {
           form.reset();
           statusEl.className = 'form-status success';
-          statusEl.textContent = 'Thanks! Your message has been sent.';
+          statusEl.textContent = 'Message sent. I will get back to you soon.';
         } else {
           statusEl.className = 'form-status error';
           statusEl.textContent = 'Something went wrong. Please try again.';
