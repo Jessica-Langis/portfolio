@@ -238,30 +238,38 @@
 /*----------------------------------------------------*/
 /*	Reveal paragraphs on scroll*/
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Titles: reveal as soon as they touch the viewport
-  const titles = document.querySelectorAll(".reveal-title");
-  const titleObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        titleObserver.unobserve(entry.target);
-      }
+
+(function () {
+    // Select the paragraphs you want to animate
+    const targets = document.querySelectorAll(
+      '#whatidobest p, #outsidetheoffice p, .outside-office p'
+    );
+
+    // Optional: add a subtle stagger per section
+    const groups = new Map(); // section -> running index
+    targets.forEach(p => {
+      const section = p.closest('#whatidobest, #outsidetheoffice, .outside-office') || document;
+      const i = groups.get(section) || 0;
+      p.style.setProperty('--reveal-delay', (i * 60) + 'ms'); // 0ms, 60ms, 120ms…
+      groups.set(section, i + 1);
+      p.classList.add('reveal');
     });
-  }, { threshold: 0.01 }); // sooner
 
-  titles.forEach(t => titleObserver.observe(t));
-
-  // Paragraphs: reveal a bit later, once more is visible
-  const paras = document.querySelectorAll(".reveal-para");
-  const paraObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        paraObserver.unobserve(entry.target);
-      }
+    // Observer that replays on every re-entry
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        } else {
+          // remove when out of view so it can replay on the next entry
+          entry.target.classList.remove('in');
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15,            // fire when ~15% visible
+      rootMargin: '0px 0px -10% 0px' // start a bit before fully in view
     });
-  }, { threshold: 1 }); // later than title
 
-  paras.forEach(p => paraObserver.observe(p));
-});
+    targets.forEach(el => io.observe(el));
+  })();

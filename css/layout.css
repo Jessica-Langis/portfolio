@@ -681,6 +681,38 @@ ul#nav li a:hover, ul#nav li a:focus {
 .reveal-para:nth-child(2) { transition-delay: .15s; }
 .reveal-para:nth-child(3) { transition-delay: .25s; }
 
+
+/* Reusable reveal effect */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity .45s ease,
+    transform .45s ease;
+  will-change: opacity, transform;
+}
+
+/* When in view */
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Optional: tiny stagger via a CSS var */
+.reveal {
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* === Skills bars === */
 
    /*   
@@ -990,7 +1022,6 @@ ul#nav li a:hover, ul#nav li a:focus {
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content .popup-modal {
    opacity: 0;
 }
-
 /* ------------------------------------------------------------------ */
 /* f. Call To Action Section
 /* ------------------------------------------------------------------ */

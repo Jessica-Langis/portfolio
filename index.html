@@ -239,7 +239,7 @@
                            HTML, CSS, JavaScript, Node.js, MongoDB, Git/GitHub, Docker, and PowerShell. I don't try to be a full-time developer, but I know enough to build what's needed and keep projects moving.
                         </p>
                   </li>
-                  
+
                  <li><span class="bar-expand sdlc"></span><em>SDLC</em></li>
 
    ================================================== -->
@@ -439,6 +439,42 @@
    <script src="js/jquery.fittext.js"></script>
    <script src="js/magnific-popup.js"></script>
    <script src="js/init.js"></script>
+<script>
+  (function () {
+    // Select the paragraphs you want to animate
+    const targets = document.querySelectorAll(
+      '#whatidobest p, #outsidetheoffice p, .outside-office p'
+    );
+
+    // Optional: add a subtle stagger per section
+    const groups = new Map(); // section -> running index
+    targets.forEach(p => {
+      const section = p.closest('#whatidobest, #outsidetheoffice, .outside-office') || document;
+      const i = groups.get(section) || 0;
+      p.style.setProperty('--reveal-delay', (i * 60) + 'ms'); // 0ms, 60ms, 120ms…
+      groups.set(section, i + 1);
+      p.classList.add('reveal');
+    });
+
+    // Observer that replays on every re-entry
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        } else {
+          // remove when out of view so it can replay on the next entry
+          entry.target.classList.remove('in');
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15,            // fire when ~15% visible
+      rootMargin: '0px 0px -10% 0px' // start a bit before fully in view
+    });
+
+    targets.forEach(el => io.observe(el));
+  })();
+</script>
 
 </body>
 
