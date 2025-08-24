@@ -343,7 +343,7 @@ ul#nav li a:hover, ul#nav li a:focus {
    width: 58.33333%;
    padding-top: 6px;
 }
-#hatidobest .main-col { padding-right: 5%; }
+#Whatidobest .main-col { padding-right: 5%; }
 #whatidobest .download .button {
    margin-top: 6px;
    background: #323938;
@@ -375,11 +375,11 @@ ul#nav li a:hover, ul#nav li a:focus {
   border-bottom:2px solid var(--accent); 
 
 }
-.outside-office h2 {
-   font: 22px/30px 'opensans-bold', sans-serif;
-   color: #D0D3D6;
-   margin-bottom: 12px;
+.outside-office h2 { 
+  font: 22px/30px 'opensans-bold', sans-serif; 
+  color: #D0D3D6; 
 }
+
 .outside-office p {
    line-height: 30px;
    color: #D0D3D6;
@@ -402,55 +402,47 @@ ul#nav li a:hover, ul#nav li a:focus {
   padding:0 12px;
 }
 
-/* image card stays modest; text card flexes */
-.outside-office-container .photo-card{
-  background: var(--panel); border-radius: var(--radius); 
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  /* prevent the image column from ballooning */
-  max-width: 520px; 
-  width:100%; 
-  justify-self:start;
+.outside-office .main-col { 
+   padding-right: 5%; 
 }
-.outside-office-container .photo-card .outside-pic{
-  border-radius: 10px; 
-  overflow:hidden; 
-  width:200px;
-}
-.outside-office-container .photo-card .outside-pic img{
-  width:100%; 
-  height:auto; 
-  object-fit:cover;
+/* Keep legacy columns working for this section */
+/* keep the legacy columns working */
+.outsidetheoffice .row,
+.outsidetheoffice .columns {
+  float: left;
+  width: auto;
+  padding: 0 20px;   /* matches your global gutter */
 }
 
-/* text card expands */
-.outside-office-container .text-card{
-  background: var(--panel); 
-  border-radius: var(--radius);
-  padding: 2rem; 
-  box-shadow: var(--shadow);
-}
-.outside-office-container .text-card p{
-  color:var(--ink); 
-  line-height:30px; 
-  font-weight:300; 
-  margin:0 0 1.25rem;
-}
-/*stack cleanly on mobile */
-@media (max-width:900px){
-  .outside-office-container{ grid-template-columns: 1fr; }
-  .outside-office-container .section-title{ grid-column: 1; }
+/* spacer column: no extra padding so the visual edge is clean */
+.outsidetheoffice .three.columns {
+  padding: 0;
 }
 
-/* neutralize legacy floats in this section */
-#outsidetheoffice, #outsidetheoffice .row, #outsidetheoffice .columns,
-#outside-office .row, #outside-office .columns{
-  float:none !important; 
-  width:auto !important; 
-  padding:0 !important;
+/* main text column: give it a left gutter like “What I Do Best” */
+.outsidetheoffice .nine.columns.main-col {
+  padding-left: 20px;   /* matches the same gutter */
+  padding-right: 5%;    /* you already use this on main-col elsewhere */
 }
 
+/* mobile: remove the spacer and let text go full width */
+@media (max-width: 767px) {
+  #outsidetheoffice .three.columns { display: none; }
+  #outsidetheoffice .nine.columns.main-col {
+    float: none;
+    width: 100%;
+    padding: 0 30px;    /* same mobile side padding as other sections */
+  }
+}
 
+/* one clean header style to mirror What I Do Best */
+.outsidetheoffice .section-title{
+  margin: 0 auto 22px;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: .25rem;
+  border-bottom: 2px solid var(--accent);
+}
 
 /*----------------------------------------------*/
 /*	Skill 
@@ -1100,7 +1092,7 @@ call-to-action .button {
 }
 .contact-title{ 
    margin:0 0 10px; 
-   font-size:28px; 
+   font-size:24px; 
    line-height:1.3; 
    color:#f6fafb 
 }
