@@ -468,15 +468,9 @@ ul#nav li a:hover, ul#nav li a:focus {
   margin: 0 auto;
   padding: 0 12px;
 }
+/* one clean header style to mirror What I Do Best */
 
-#skills-modern .section-title {
-  text-align: center;
-  color: #D0D3D6;
-  letter-spacing: .12em;
-  font-size: 14px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-}
+
 
 #skills-modern .skills-grid {
   display: grid;
@@ -555,10 +549,21 @@ ul#nav li a:hover, ul#nav li a:focus {
   color: #fff;
 }
 
+#skills-modern .section-title {
+  margin: 0 auto 22px;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: .25rem;
+  border-bottom: 2px solid var(--accent);
+  font-size: 24px;
+  font-family: 'opensans-bold', sans-serif;
+}
+
 /* responsive tweak so images never look “tall and skinny” */
 @media (max-width: 520px) {
   #skills-modern .skill-media { height: 180px; }
 }
+
 
 /* === Skills bars === */
 
