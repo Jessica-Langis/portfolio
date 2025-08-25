@@ -1,275 +1,193 @@
 /*-----------------------------------------------------------------------------------
-/*
 /* Init JS
-/*
------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
 
- jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
+  /*----------------------------------------------------
+  /* FitText (guarded)
+  ------------------------------------------------------*/
+  setTimeout(function () {
+    if ($.fn.fitText) {
+      $('h1.responsive-headline').fitText(1, { minFontSize: '40px', maxFontSize: '90px' });
+      $('h3.responsive-headline').fitText(1, { minFontSize: '12px', maxFontSize: '24px' });
+    }
+  }, 80);
 
-/*----------------------------------------------------*/
-/* FitText Settings
------------------------------------------------------- */
-
-    setTimeout(function() {
-	   $('h1.responsive-headline').fitText(1, { minFontSize: '40px', maxFontSize: '90px' });
-	 }, 100);
-        setTimeout(function() {
-	   $('h3.responsive-headline').fitText(1, { minFontSize: '8px', maxFontSize: '16px' });
-	 }, 60);
-
-
-/*----------------------------------------------------*/
-/* Smooth Scrolling
------------------------------------------------------- */
-
-   $('.smoothscroll').on('click',function (e) {
-	    e.preventDefault();
-
-	    var target = this.hash,
-	    $target = $(target);
-
-	    $('html, body').stop().animate({
-	        'scrollTop': $target.offset().top
-	    }, 800, 'swing', function () {
-	        window.location.hash = target;
-	    });
-	});
-
-
-/*----------------------------------------------------*/
-/* Highlight the current section in the navigation bar
-------------------------------------------------------*/
-
-	var sections = $("section");
-	var navigation_links = $("#nav-wrap a");
-
-	sections.waypoint({
-
-      handler: function(event, direction) {
-
-		   var active_section;
-
-			active_section = $(this);
-			if (direction === "up") active_section = active_section.prev();
-
-			var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
-
-         navigation_links.parent().removeClass("current");
-			active_link.parent().addClass("current");
-
-		},
-		offset: '35%'
-
-	});
-
-
-/*----------------------------------------------------*/
-/*	Make sure that #header-background-image height is
-/* equal to the browser height.
------------------------------------------------------- */
-
-   $('header').css({ 'height': $(window).height() });
-   $(window).on('resize', function() {
-
-        $('header').css({ 'height': $(window).height() });
-        $('body').css({ 'width': $(window).width() })
-   });
-
-
-/*----------------------------------------------------*/
-/*	Fade In/Out Primary Navigation
-------------------------------------------------------*/
-
-   $(window).on('scroll', function() {
-
-		var h = $('header').height();
-		var y = $(window).scrollTop();
-      var nav = $('#nav-wrap');
-
-	   /*if ( (y > h*.20) && (y < h) && ($(window).outerWidth() > 768 ) ) {
-	      nav.fadeOut('fast');
-	   }
-      else {
-         if (y < h*.20) {
-            nav.removeClass('opaque').fadeIn('fast');
-         }
-         else {
-            nav.addClass('opaque').fadeIn('fast');
-         }
-      }
-*/
-	});
-
-
-/*----------------------------------------------------*/
-/*	Modal Popup
-------------------------------------------------------*/
-
-    $('.item-wrap a').magnificPopup({
-
-       type:'inline',
-       fixedContentPos: false,
-       removalDelay: 200,
-       showCloseBtn: false,
-       mainClass: 'mfp-fade'
-
+  /*----------------------------------------------------
+  /* Smooth Scrolling
+  ------------------------------------------------------*/
+  $('.smoothscroll').on('click', function (e) {
+    e.preventDefault();
+    var target = this.hash, $target = $(target);
+    if (!$target.length) return;
+    $('html, body').stop().animate({ scrollTop: $target.offset().top }, 800, 'swing', function () {
+      window.location.hash = target;
     });
+  });
 
-    $(document).on('click', '.popup-modal-dismiss', function (e) {
-    		e.preventDefault();
-    		$.magnificPopup.close();
+  /*----------------------------------------------------
+  /* Highlight current section in nav (Waypoints)
+  ------------------------------------------------------*/
+  var sections = $('section');
+  var navigation_links = $('#nav-wrap a');
+
+  if (sections.length && $.fn.waypoint) {
+    sections.waypoint({
+      handler: function (direction) {
+        var active = $(this);
+        if (direction === 'up') active = active.prev();
+        var link = $('#nav-wrap a[href="#' + active.attr('id') + '"]');
+        navigation_links.parent().removeClass('current');
+        link.parent().addClass('current');
+      },
+      offset: '35%'
     });
+  }
 
-
-/*----------------------------------------------------*/
-/*	Flexslider
-/*----------------------------------------------------*/
-   $('.flexslider').flexslider({
-      namespace: "flex-",
-      controlsContainer: ".flex-container",
+  /*----------------------------------------------------
+  /* Flexslider (guarded)
+  ------------------------------------------------------*/
+  if ($.fn.flexslider) {
+    $('.flexslider').flexslider({
+      namespace: 'flex-',
+      controlsContainer: '.flex-container',
       animation: 'slide',
       controlNav: true,
       directionNav: false,
       smoothHeight: true,
       slideshowSpeed: 7000,
       animationSpeed: 600,
-      randomize: false,
-   });
+      randomize: false
+    });
+  }
 
-/*----------------------------------------------------*/
-/*	contact form
-------------------------------------------------------*/
-
-   $('form#contactForm button.submit').click(function() {
-
-      $('#image-loader').fadeIn();
-
-      var contactName = $('#contactForm #contactName').val();
-      var contactEmail = $('#contactForm #contactEmail').val();
-      var contactSubject = $('#contactForm #contactSubject').val();
-      var contactMessage = $('#contactForm #contactMessage').val();
-
-      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
-               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
-
-      $.ajax({
-
-	      type: "POST",
-	      url: "inc/sendEmail.php",
-	      data: data,
-	      success: function(msg) {
-
-            // Message was sent
-            if (msg == 'OK') {
-               $('#image-loader').fadeOut();
-               $('#message-warning').hide();
-               $('#contactForm').fadeOut();
-               $('#message-success').fadeIn();   
-            }
-            // There was an error
-            else {
-               $('#image-loader').fadeOut();
-               $('#message-warning').html(msg);
-	            $('#message-warning').fadeIn();
-            }
-
-	      }
-
-      });
-      return false;
-   });
-
-
+  /*----------------------------------------------------
+  /* Magnific Popup (guarded)
+  ------------------------------------------------------*/
+  if ($.fn.magnificPopup) {
+    $('.item-wrap a').magnificPopup({
+      type: 'inline',
+      fixedContentPos: false,
+      removalDelay: 200,
+      showCloseBtn: false,
+      mainClass: 'mfp-fade'
+    });
+    $(document).on('click', '.popup-modal-dismiss', function (e) {
+      e.preventDefault();
+      $.magnificPopup.close();
+    });
+  }
 });
 
-
-(function() {
+/*-----------------------------------------------------------------------------------
+/* Formspree-only contact (AJAX enhance + honeypot)
+-----------------------------------------------------------------------------------*/
+(function () {
   const form = document.getElementById('contactForm');
   const statusEl = document.getElementById('formStatus');
-
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
-    // Basic honeypot check
+    // Honeypot
     const hp = form.querySelector('input[name="company"]');
     if (hp && hp.value.trim() !== '') {
       e.preventDefault();
-      return; // silent drop on bots
+      return;
     }
 
-    // Map _replyto to visible email for Formspree headers
-    const replyTo = form.querySelector('#contactEmail')?.value || '';
-    const hiddenReply = form.querySelector('input[name="_replyto"]');
-    if (hiddenReply) hiddenReply.value = replyTo;
+    // Map _replyto to visible email so replies work
+    const emailVal = form.querySelector('#contactEmail')?.value || '';
+    let replyHidden = form.querySelector('input[name="_replyto"]');
+    if (!replyHidden) {
+      replyHidden = document.createElement('input');
+      replyHidden.type = 'hidden';
+      replyHidden.name = '_replyto';
+      form.appendChild(replyHidden);
+    }
+    replyHidden.value = emailVal;
 
-    // If fetch is available, do AJAX submit
     if (window.fetch) {
       e.preventDefault();
-      statusEl.className = 'form-status';
-      statusEl.textContent = 'Sending…';
-
-      const data = new FormData(form);
+      if (statusEl) {
+        statusEl.className = 'form-status';
+        statusEl.textContent = 'Sending…';
+      }
 
       try {
         const res = await fetch(form.action, {
           method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
         });
-
         if (res.ok) {
           form.reset();
-          statusEl.className = 'form-status success';
-          statusEl.textContent = 'Message sent. I will get back to you soon.';
+          if (statusEl) {
+            statusEl.className = 'form-status success';
+            statusEl.textContent = 'Message sent. I’ll get back to you soon.';
+          }
         } else {
-          statusEl.className = 'form-status error';
-          statusEl.textContent = 'Something went wrong. Please try again.';
+          if (statusEl) {
+            statusEl.className = 'form-status error';
+            statusEl.textContent = 'Something went wrong. Please try again.';
+          }
         }
-      } catch (err) {
-        statusEl.className = 'form-status error';
-        statusEl.textContent = 'Network error. Please try again.';
+      } catch {
+        if (statusEl) {
+          statusEl.className = 'form-status error';
+          statusEl.textContent = 'Network error. Please try again.';
+        }
       }
     }
-    // else: no JS enhancement — browser will submit normally to Formspree
+    // no fetch: fall back to normal Formspree POST
   });
 })();
 
-
-/*----------------------------------------------------*/
-/*	Reveal paragraphs on scroll*/
-
-
+/*-----------------------------------------------------------------------------------
+/* Scroll reveals (titles reveal once; paragraphs + hero h3 replay)
+-----------------------------------------------------------------------------------*/
 (function () {
-    // Select the paragraphs you want to animate
-    const targets = document.querySelectorAll(
-      '#whatidobest p, #outsidetheoffice p, .outside-office p'
-    );
+  // Titles: reveal once
+  const titles = document.querySelectorAll('.reveal-title');
+  if (titles.length) {
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          titleObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    titles.forEach((t) => titleObserver.observe(t));
+  }
 
-    // Optional: add a subtle stagger per section
-    const groups = new Map(); // section -> running index
-    targets.forEach(p => {
-      const section = p.closest('#whatidobest, #outsidetheoffice, .outside-office') || document;
-      const i = groups.get(section) || 0;
-      p.style.setProperty('--reveal-delay', (i * 60) + 'ms'); // 0ms, 60ms, 120ms…
-      groups.set(section, i + 1);
-      p.classList.add('reveal');
-    });
+  // Paragraphs + hero h3: replay on each re-entry
+  const paras = document.querySelectorAll(
+    '#whatidobest p, #outsidetheoffice p, .outside-office p, #home h3'
+  );
+  if (!paras.length) return;
 
-    // Observer that replays on every re-entry
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+  // stagger per section
+  const groups = new Map();
+  paras.forEach((el) => {
+    const section = el.closest('#whatidobest, #outsidetheoffice, .outside-office, #home') || document;
+    const i = groups.get(section) || 0;
+    el.style.setProperty('--reveal-delay', i * 70 + 'ms');
+    groups.set(section, i + 1);
+    el.classList.add('reveal'); // base hidden state
+  });
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
         } else {
-          // remove when out of view so it can replay on the next entry
-          entry.target.classList.remove('in');
+          entry.target.classList.remove('in'); // replay when it comes back
         }
       });
-    }, {
-      root: null,
-      threshold: 0.15,            // fire when ~15% visible
-      rootMargin: '0px 0px -10% 0px' // start a bit before fully in view
-    });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+  );
 
-    targets.forEach(el => io.observe(el));
-  })();
+  paras.forEach((el) => io.observe(el));
+})();
