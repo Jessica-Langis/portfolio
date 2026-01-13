@@ -575,6 +575,31 @@ ul#nav li a:hover, ul#nav li a:focus {
     background .22s ease;
   will-change: transform;
 }
+/* Make sure cards can host a positioned badge */
+#skills-modern .skill-card { position: relative; }
+
+/* Subtle “Supporting” badge */
+#skills-modern .skill-badge{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .02em;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #ffe9d0;                       /* warm ink to match your palette */
+  background: rgba(253,159,17,0.15);    /* FD9F11 with transparency */
+  border: 1px solid rgba(253,159,17,0.35);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Optional: visually distinguish “supporting” cards on hover (very subtle) */
+#skills-modern .skill-card.support-card:hover {
+  border-color: rgba(253,159,17,.20);
+  box-shadow: 0 14px 34px rgba(253,159,17,.10), 0 8px 24px rgba(0,0,0,.45);
+}
 
 /* media motion */
 #skills-modern .skill-media {
