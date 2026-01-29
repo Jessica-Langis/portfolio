@@ -411,18 +411,18 @@ ul#nav li a:hover, ul#nav li a:focus {
 .outsidetheoffice .columns {
   float: left;
   width: auto;
-  padding: 0 20px;   /* matches your global gutter */
+  padding: 0 20px;  
 }
 
-/* spacer column: no extra padding so the visual edge is clean */
+/* spacer columnn */
 .outsidetheoffice .three.columns {
   padding: 0;
 }
 
-/* main text column: give it a left gutter like “What I Do Best” */
+/* main text column */
 .outsidetheoffice .nine.columns.main-col {
-  padding-left: 20px;   /* matches the same gutter */
-  padding-right: 5%;    /* you already use this on main-col elsewhere */
+  padding-left: 20px;  
+  padding-right: 5%;   
 }
 
 /* mobile: remove the spacer and let text go full width */
@@ -431,11 +431,11 @@ ul#nav li a:hover, ul#nav li a:focus {
   #outsidetheoffice .nine.columns.main-col {
     float: none;
     width: 100%;
-    padding: 0 30px;    /* same mobile side padding as other sections */
+    padding: 0 30px;   
   }
 }
 
-/* one clean header style to mirror What I Do Best */
+/* One clean header style  */
 .outsidetheoffice .section-title{
   margin: 0 auto 22px;
   display: inline-block;
@@ -468,8 +468,6 @@ ul#nav li a:hover, ul#nav li a:focus {
   margin: 0 auto;
   padding: 0 12px;
 }
-/* one clean header style to mirror What I Do Best */
-
 
 
 #skills-modern .skills-grid {
@@ -558,8 +556,7 @@ ul#nav li a:hover, ul#nav li a:focus {
   font-size: 24px;
   font-family: 'opensans-bold', sans-serif;
 }
-
-/* responsive tweak so images never look “tall and skinny” */
+/* responsive tweak” */
 @media (max-width: 520px) {
   #skills-modern .skill-media { height: 180px; }
 }
@@ -575,7 +572,7 @@ ul#nav li a:hover, ul#nav li a:focus {
     background .22s ease;
   will-change: transform;
 }
-/* Make sure cards can host a positioned badge */
+/* cards can host a positioned badge */
 #skills-modern .skill-card { position: relative; }
 
 /* Subtle “Supporting” badge */
@@ -588,14 +585,14 @@ ul#nav li a:hover, ul#nav li a:focus {
   letter-spacing: .02em;
   padding: 7px 10px;
   border-radius: 999px;
-  color: #ffe9d0;                       /* warm ink to match your palette */
-  background: rgba(253,159,17,0.15);    /* FD9F11 with transparency */
+  color: #ffe9d0;                       
+  background: rgba(253,159,17,0.15);  
   border: 1px solid rgba(253,159,17,0.35);
   backdrop-filter: blur(2px);
   pointer-events: none;
 }
 
-/* Optional: visually distinguish “supporting” cards on hover (very subtle) */
+/* Visually distinguish “supporting” cards on hover */
 #skills-modern .skill-card.support-card:hover {
   border-color: rgba(253,159,17,.20);
   box-shadow: 0 14px 34px rgba(253,159,17,.10), 0 8px 24px rgba(0,0,0,.45);
@@ -629,7 +626,7 @@ ul#nav li a:hover, ul#nav li a:focus {
   border-color: rgba(255,255,255,.14);
 }
 
-/* image shifts up just a touch */
+/* image shift up */
 #skills-modern .skill-card:hover .skill-media,
 #skills-modern .skill-card:focus-within .skill-media {
   transform: translateY(-4px) scale(1.02);
@@ -694,14 +691,14 @@ ul#nav li a:hover, ul#nav li a:focus {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity .6s ease, transform .6s ease;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 .reveal-para.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Optional: slight stagger between paragraphs */
+/* Slight stagger between paragraphs */
 .reveal-para:nth-child(1) { transition-delay: .05s; }
 .reveal-para:nth-child(2) { transition-delay: .15s; }
 .reveal-para:nth-child(3) { transition-delay: .25s; }
@@ -723,7 +720,7 @@ ul#nav li a:hover, ul#nav li a:focus {
   transform: none;
 }
 
-/* Optional: tiny stagger via a CSS var */
+/* Tiny stagger */
 .reveal {
   transition-delay: var(--reveal-delay, 0s);
 }
@@ -1191,6 +1188,7 @@ call-to-action .button {
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+
 /* Suggested container for slide animation setups. Can replace this with your own */
 .flex-container { zoom: 1; position: relative; }
 
