@@ -356,6 +356,26 @@ ul#nav li a:hover, ul#nav li a:focus {
    margin-right: 15px;
    font-size: 20px;
 }
+
+/* Off the Clock image container */
+.whatidobest-media {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  border-radius: 16px;        
+  overflow: hidden;           
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Image */
+.whatidobest-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0;           /* <-- important: let wrapper handle rounding */
+}
 /* ----------------------------- */
 /* e) Outside the Office  */
 /* ----------------------------- */
@@ -442,6 +462,26 @@ ul#nav li a:hover, ul#nav li a:focus {
   text-align: center;
   padding-bottom: .25rem;
   border-bottom: 2px solid var(--accent);
+}
+
+/* Off the Clock image container */
+.outside-media {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  border-radius: 16px;        
+  overflow: hidden;           
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Image */
+.outside-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0;           /* <-- important: let wrapper handle rounding */
 }
 
 /*----------------------------------------------*/
