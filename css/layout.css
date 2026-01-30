@@ -357,11 +357,12 @@ ul#nav li a:hover, ul#nav li a:focus {
    font-size: 20px;
 }
 
-/* Off the Clock image container */
+/* Image container */
 .whatidobest-media {
   width: 100%;
   max-width: 240px;
   margin: 0 auto;
+  margin-top: 2rem;
   border-radius: 16px;        
   overflow: hidden;           
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -466,9 +467,10 @@ ul#nav li a:hover, ul#nav li a:focus {
 
 /* Off the Clock image container */
 .outside-media {
-  width: 100%;
+  width:   100%;
   max-width: 240px;
   margin: 0 auto;
+  margin-top: 2rem;
   border-radius: 16px;        
   overflow: hidden;           
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
