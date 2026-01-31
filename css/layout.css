@@ -333,50 +333,60 @@ ul#nav li a:hover, ul#nav li a:focus {
    margin-right: 15px;
    font-size: 20px;
 }
-
-/* Image container */
+/* Image container (card) */
 .whatidobest-media {
   width: 100%;
   max-width: 240px;
-  margin: 0 auto;
-  margin-top: 2rem;
-  border-radius: 16px;        
-  overflow: hidden;           
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
+  margin: 2rem auto 0;
 
-/* Image */
-
-.whatidobest-img {
-  display: inline-block;
-  border-radius: 12px; /* or 50% for circular */
+  border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Separation on dark background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Soft, layered shadow */
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 2px 10px rgba(0, 0, 0, 0.25);
+
+  /* Helps with smoother transforms on some browsers */
+  transform: translateZ(0);
 }
 
-.whatidobest-img img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.whatidobest-img:hover {
-  transform: scale(1.02); /* pop out slightly */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.whatidobest-img:hover img {
-  transform: scale(1); /* zoom-in effect on the photo itself */
-}
-.whatidobest-media img {
+/* Image fill */
+.whatidobest-media > img {
   display: block;
   width: 100%;
   height: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 0;           /* <-- important: let wrapper handle rounding */
+  object-position: center;
+
+  transform: scale(1);
+  transition: transform 600ms ease;
+
+  /* Subtle pop for nature photos on dark UI */
+  filter: contrast(1.04) saturate(1.05);
 }
+
+/* Hover: zoom the image (container stays still) */
+.whatidobest-media:hover > img {
+  transform: scale(1.06);
+}
+
+/* Keyboard accessibility: same behavior when focused */
+.whatidobest-media:focus-within > img {
+  transform: scale(1.06);
+}
+
+/* Stronger lift on hover */
+.whatidobest-media:hover {
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(255, 178, 123, 0.10);
+}
+
 /* ----------------------------- */
 /* e) Outside the Office  */
 /* ----------------------------- */
@@ -456,7 +466,7 @@ ul#nav li a:hover, ul#nav li a:focus {
   }
 }
 
-/* One clean header style  */
+/* One header style  */
 .outsidetheoffice .section-title{
   margin: 0 auto 22px;
   display: inline-block;
@@ -465,104 +475,203 @@ ul#nav li a:hover, ul#nav li a:focus {
   border-bottom: 2px solid var(--accent);
 }
 
-/* Off the Clock image container */
-.outside-media {
-  width:   100%;
+/* Image container (card) */
+.outsideoffice-media {
+  width: 100%;
   max-width: 240px;
-  margin: 0 auto;
-  margin-top: 2rem;
-  border-radius: 16px;        
-  overflow: hidden;           
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  margin: 2rem auto 0;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  /* Separation on dark background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Soft, layered shadow */
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 2px 10px rgba(0, 0, 0, 0.25);
+
+  /* Helps with smoother transforms on some browsers */
+  transform: translateZ(0);
 }
 
-/* Image */
-.outside-media img {
+/* Image fill */
+.outsideoffice-media > img {
   display: block;
   width: 100%;
   height: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 0;           /* <-- important: let wrapper handle rounding */
+  object-position: center;
+
+  transform: scale(1);
+  transition: transform 600ms ease;
+
+  /* Optional: subtle pop for nature photos on dark UI */
+  filter: contrast(1.04) saturate(1.05);
 }
 
-/*----------------------------------------------*/
-/*	Skill 
-/*----------------------------------------------*/
+/* Hover: zoom the image (container stays still) */
+.outsideoffice-media:hover > img {
+  transform: scale(1.06);
+}
 
-/* === Skills Grid  === */
+/* Keyboard accessibility: same behavior when focused */
+.outsideoffice-media:focus-within > img {
+  transform: scale(1.06);
+}
+
+/* Optional: slightly stronger lift on hover */
+.outsideoffice-media:hover {
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(255, 178, 123, 0.10);
+}
+
+/* =========================================================
+   Skills (Modern)
+   ========================================================= */
+
+/* ---- Design tokens (prefer global; keep here if section-only) ---- */
 :root {
-  --accent: #E8750A;    
-  --card-bg: #0f1417;      
-  --card-border: rgba(255,255,255,0.07);
-  --muted: #a8b3bd;   
+  --accent: #E8750A;
+
+  --skills-wrap: 1100px;
+  --skills-pad-x: 12px;
+  --skills-gap: 28px;
+
+  --card-bg: #0f1417;
+  --card-border: rgba(255, 255, 255, 0.07);
+  --card-border-hover: rgba(255, 255, 255, 0.14);
+  --text: #D0D3D6;
+  --muted: #a8b3bd;
+
+  --radius-lg: 16px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.45);
+
+  --tag-bg: linear-gradient(180deg, #081316 0%, #040c0e 100%);
+  --tag-border-hover: rgba(232, 117, 10, 0.55);
+  --tag-bg-hover: rgba(232, 117, 10, 0.10);
+
+  --focus-ring: 2px solid rgba(232, 117, 10, 0.55);
 }
 
-#skills-modern {           
+/* ---- Section shell ---- */
+#skills-modern {
   padding: 60px 0 80px;
   background: transparent;
-  clear: both;            
+  clear: both;
 }
 
 #skills-modern .container {
   width: 96%;
-  max-width: 1100px;
+  max-width: var(--skills-wrap);
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0 var(--skills-pad-x);
 }
 
+#skills-modern .section-title {
+  margin: 0 auto 22px;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--accent);
+  font: 24px/1.2 'opensans-bold', sans-serif;
+  color: var(--text);
+}
 
+/* ---- Grid ---- */
 #skills-modern .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--skills-gap);
 }
 
+/* ---- Card ---- */
 #skills-modern .skill-card {
+  position: relative;
+  isolation: isolate;
+
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+
+  box-shadow: var(--shadow);
+
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  will-change: transform;
 }
 
-#skills-modern .skill-card:hover {
+/* Hover + keyboard parity */
+#skills-modern .skill-card:hover,
+#skills-modern .skill-card:focus-within {
   transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(0,0,0,.45);
-  border-color: rgba(255,255,255,.12);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--card-border-hover);
 }
 
-/* media at top of card */
+/* Keyboard focus ring on the card */
+#skills-modern .skill-card:focus-within {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---- Card media ---- */
 #skills-modern .skill-media {
   display: block;
   width: 100%;
-  height: 220px;           /* forces a consistent “postcard” crop */
+  height: 220px;
   object-fit: cover;
+
+  transition: transform 350ms ease;
+  will-change: transform;
 }
 
-/* card content */
+#skills-modern .skill-card:hover .skill-media,
+#skills-modern .skill-card:focus-within .skill-media {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* ---- Typography ---- */
 #skills-modern .skill-card h3 {
   margin: 18px 18px 6px;
-  color: #D0D3D6;
+  color: var(--text);
   font-size: 22px;
   line-height: 1.25;
-}
-
-#skills-modern .skill-underline {
-  width: 56px;
-  height: 3px;
-  margin: 0 18px 10px;
-  background: var(--accent);
-  border-radius: 2px;
 }
 
 #skills-modern .skill-card p {
   margin: 0 18px 14px;
   color: var(--muted);
+  line-height: 1.5;
 }
 
-/* tag pills */
+/* ---- Underline accent ---- */
+#skills-modern .skill-underline {
+  width: 56px;
+  height: 3px;
+  margin: 0 18px 10px;
+
+  background: var(--accent);
+  border-radius: 2px;
+
+  transform-origin: 0 50%;
+  transform: scaleX(0.25);
+  opacity: 0.85;
+
+  transition: transform 280ms ease, opacity 280ms ease;
+}
+
+#skills-modern .skill-card:hover .skill-underline,
+#skills-modern .skill-card:focus-within .skill-underline {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* ---- Tags ---- */
 #skills-modern .skill-tags {
   list-style: none;
   display: flex;
@@ -576,132 +685,85 @@ ul#nav li a:hover, ul#nav li a:focus {
   font-size: 13px;
   line-height: 1;
   padding: 9px 12px;
+
   border: 1px solid var(--card-border);
   border-radius: 999px;
-  color: #D0D3D6;
-  background: linear-gradient(180deg, #081316 0%, #040c0e 100%);
-  transition: border-color .2s ease, background .2s ease, color .2s ease;
+
+  color: var(--text);
+  background: var(--tag-bg);
+
+  transition: border-color 220ms ease, background 220ms ease, color 220ms ease;
 }
 
-#skills-modern .skill-tags li:hover {
-  border-color: rgba(232,117,10,.55);
-  background: rgba(232,117,10,.08);
+/* Tags respond on card hover/focus (not individual hover) */
+#skills-modern .skill-card:hover .skill-tags li,
+#skills-modern .skill-card:focus-within .skill-tags li {
+  border-color: var(--tag-border-hover);
+  background: var(--tag-bg-hover);
   color: #fff;
 }
 
-#skills-modern .section-title {
-  margin: 0 auto 22px;
-  display: inline-block;
-  text-align: center;
-  padding-bottom: .25rem;
-  border-bottom: 2px solid var(--accent);
-  font-size: 24px;
-  font-family: 'opensans-bold', sans-serif;
+/* Individual hover */
+#skills-modern .skill-tags li:hover {
+  border-color: var(--tag-border-hover);
+  background: rgba(232, 117, 10, 0.08);
+  color: #fff;
 }
-/* responsive tweak” */
-@media (max-width: 520px) {
-  #skills-modern .skill-media { height: 180px; }
-}
-/* === Hover reinforcement for skill cards === */
 
-#skills-modern .skill-card {
-  position: relative;                           /* enables overflow animations */
-  isolation: isolate;                           /* keeps shadow crisp */
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    border-color .22s ease,
-    background .22s ease;
-  will-change: transform;
-}
-/* cards can host a positioned badge */
-#skills-modern .skill-card { position: relative; }
-
-/* Subtle “Supporting” badge */
-#skills-modern .skill-badge{
+/* ---- Supporting badge (optional) ---- */
+#skills-modern .skill-badge {
   position: absolute;
   top: 12px;
   right: 12px;
+
   font-size: 12px;
   line-height: 1;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
+
   padding: 7px 10px;
   border-radius: 999px;
-  color: #ffe9d0;                       
-  background: rgba(253,159,17,0.15);  
-  border: 1px solid rgba(253,159,17,0.35);
+
+  color: #ffe9d0;
+  background: rgba(253, 159, 17, 0.15);
+  border: 1px solid rgba(253, 159, 17, 0.35);
+
   backdrop-filter: blur(2px);
   pointer-events: none;
 }
 
-/* Visually distinguish “supporting” cards on hover */
-#skills-modern .skill-card.support-card:hover {
-  border-color: rgba(253,159,17,.20);
-  box-shadow: 0 14px 34px rgba(253,159,17,.10), 0 8px 24px rgba(0,0,0,.45);
+#skills-modern .skill-card.support-card:hover,
+#skills-modern .skill-card.support-card:focus-within {
+  border-color: rgba(253, 159, 17, 0.20);
+  box-shadow: 0 14px 34px rgba(253, 159, 17, 0.10), var(--shadow-hover);
 }
 
-/* media motion */
-#skills-modern .skill-media {
-  transition: transform .35s ease, opacity .35s ease;
-  will-change: transform;
+/* ---- Responsive tweak ---- */
+@media (max-width: 520px) {
+  #skills-modern .skill-media { height: 130px; }
 }
 
-/* underline starts collapsed */
-#skills-modern .skill-underline {
-  display: block;
-  transform-origin: 0 50%;
-  transform: scaleX(.25);
-  opacity: .85;
-  transition: transform .28s ease, opacity .28s ease;
-}
-
-/* tag pills */
-#skills-modern .skill-tags li {
-  transition: border-color .22s ease, background .22s ease, color .22s ease;
-}
-
-/* hover/focus state (mouse & keyboard) */
-#skills-modern .skill-card:hover,
-#skills-modern .skill-card:focus-within {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0,0,0,.45);
-  border-color: rgba(255,255,255,.14);
-}
-
-/* image shift up */
-#skills-modern .skill-card:hover .skill-media,
-#skills-modern .skill-card:focus-within .skill-media {
-  transform: translateY(-4px) scale(1.02);
-}
-
-/* underline grows to full width */
-#skills-modern .skill-card:hover .skill-underline,
-#skills-modern .skill-card:focus-within .skill-underline {
-  transform: scaleX(1);
-  opacity: 1;
-}
-
-/* tags brighten */
-#skills-modern .skill-card:hover .skill-tags li,
-#skills-modern .skill-card:focus-within .skill-tags li {
-  border-color: rgba(232,117,10,.55);
-  background: rgba(232,117,10,.10);
-  color: #fff;
-}
-
-/* keyboard focus ring on the whole card */
-#skills-modern .skill-card:focus-within {
-  outline: 2px solid rgba(232,117,10,.55);
-  outline-offset: 2px;
-}
-
-/* Respect reduced motion */
+/* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   #skills-modern .skill-card,
   #skills-modern .skill-media,
   #skills-modern .skill-underline,
   #skills-modern .skill-tags li {
     transition: none;
+  }
+
+  #skills-modern .skill-card:hover,
+  #skills-modern .skill-card:focus-within {
+    transform: none;
+  }
+
+  #skills-modern .skill-card:hover .skill-media,
+  #skills-modern .skill-card:focus-within .skill-media {
+    transform: none;
+  }
+
+  #skills-modern .skill-card:hover .skill-underline,
+  #skills-modern .skill-card:focus-within .skill-underline {
+    transform: scaleX(1);
   }
 }
 
