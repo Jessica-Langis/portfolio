@@ -26,9 +26,9 @@ jQuery(document).ready(function ($) {
   });
 
   /*----------------------------------------------------
-  /* Highlight current section in nav (Waypoints)
+  /* Highlight current section in nav (Waypoints + Scroll)
   ------------------------------------------------------*/
-  var sections = $('section');
+  var sections = $('header, section'); // Include header for home section
   var navigation_links = $('#nav-wrap a');
 
   if (sections.length && $.fn.waypoint) {
@@ -43,6 +43,17 @@ jQuery(document).ready(function ($) {
       offset: '35%'
     });
   }
+
+  // Additional scroll handler to ensure home is highlighted at the very top
+  $(window).on('scroll', function() {
+    var scrollPos = $(window).scrollTop();
+    
+    // If we're at the very top (within 100px), force highlight home
+    if (scrollPos < 100) {
+      navigation_links.parent().removeClass('current');
+      $('#nav-wrap a[href="#home"]').parent().addClass('current');
+    }
+  });
 
   /*----------------------------------------------------
   /* Flexslider (guarded)
@@ -89,7 +100,7 @@ jQuery(document).ready(function ($) {
 
   form.addEventListener('submit', async (e) => {
     // Honeypot
-    const hp = form.querySelector('input[name="company"]');
+    const hp = form.querySelector('input[name="website"]');
     if (hp && hp.value.trim() !== '') {
       e.preventDefault();
       return;
@@ -123,7 +134,7 @@ jQuery(document).ready(function ($) {
           form.reset();
           if (statusEl) {
             statusEl.className = 'form-status success';
-            statusEl.textContent = 'Message sent. I’ll get back to you soon.';
+            statusEl.textContent = 'Message sent. I'll get back to you soon.';
           }
         } else {
           if (statusEl) {
@@ -138,7 +149,6 @@ jQuery(document).ready(function ($) {
         }
       }
     }
-    // no fetch: fall back to normal Formspree POST
   });
 })();
 
@@ -146,7 +156,6 @@ jQuery(document).ready(function ($) {
 /* Scroll reveals (titles reveal once; paragraphs + hero h3 replay)
 -----------------------------------------------------------------------------------*/
 (function () {
-  // Titles: reveal once
   const titles = document.querySelectorAll('.reveal-title');
   if (titles.length) {
     const titleObserver = new IntersectionObserver((entries) => {
@@ -160,20 +169,18 @@ jQuery(document).ready(function ($) {
     titles.forEach((t) => titleObserver.observe(t));
   }
 
-  // Paragraphs + hero h3: replay on each re-entry
   const paras = document.querySelectorAll(
     '#whatidobest p, #outsidetheoffice p, .outside-office p, #home h3'
   );
   if (!paras.length) return;
 
-  // stagger per section
   const groups = new Map();
   paras.forEach((el) => {
     const section = el.closest('#whatidobest, #outsidetheoffice, .outside-office, #home') || document;
     const i = groups.get(section) || 0;
     el.style.setProperty('--reveal-delay', i * 70 + 'ms');
     groups.set(section, i + 1);
-    el.classList.add('reveal'); // base hidden state
+    el.classList.add('reveal');
   });
 
   const io = new IntersectionObserver(
@@ -182,7 +189,7 @@ jQuery(document).ready(function ($) {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
         } else {
-          entry.target.classList.remove('in'); // replay when it comes back
+          entry.target.classList.remove('in');
         }
       });
     },
