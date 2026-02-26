@@ -1,29 +1,60 @@
 /*
 =====================================================================
-*   Ceevee v1.0 Default Stylesheet
-*   url: styleshout.com
-*   03-17-2014
+*   Ceevee v1.0 Default Stylesheet (Cleaned & Modernized)
+*   Original: styleshout.com
+*   Modified: 2026
 =====================================================================
 
 TOC:
-a. Webfonts and Icon fonts
-b. Reset
-c. Default Styles
+a. CSS Custom Properties (Design Tokens)
+b. Webfonts and Icon fonts
+c. Reset
+d. Default Styles
    1. Basic
    2. Typography
    3. Links
    4. Images
    5. Buttons
    6. Forms
-d. Grid
-e. Others
+e. Grid
+f. Others
    1. Clearing
    2. Misc
 
 =====================================================================  */
 
 /* ------------------------------------------------------------------ */
-/* a. Webfonts and Icon fonts
+/* a. CSS Custom Properties (Design Tokens)
+ ------------------------------------------------------------------ */
+
+:root {
+   /* Brand Colors */
+   --primary-color: #f78635;
+   --primary-hover: #f8b17f;
+   --accent: #E8750A;
+   --accent-2: #e97814;
+   
+   /* Backgrounds */
+   --bg-dark: #182d42;
+   --bg-darker: #0f0f0f;
+   --panel: #01040bc4;
+   --panel-soft: rgba(8,12,16,.75);
+   
+   /* Text Colors */
+   --text-primary: #D0D3D6;
+   --text-muted: #888;
+   --text-light: #cfe3ea;
+   
+   /* Borders & Shadows */
+   --border-color: #E3E3E3;
+   --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.45), 0 2px 10px rgba(0, 0, 0, 0.25);
+   
+   /* Layout */
+   --wrap: 1100px;
+}
+
+/* ------------------------------------------------------------------ */
+/* b. Webfonts and Icon fonts
  ------------------------------------------------------------------ */
 
 @import url("fonts.css");
@@ -31,7 +62,7 @@ e. Others
 @import url("font-awesome/css/font-awesome.min.css");
 
 /* ------------------------------------------------------------------
-/* b. Reset
+/* c. Reset
       Adapted from:
       Normalize.css - https://github.com/necolas/normalize.css/
       HTML5 Doctor Reset - html5doctor.com/html-5-reset-stylesheet/
@@ -120,7 +151,7 @@ table {
 
 
 /* ------------------------------------------------------------------ */
-/* c. Default and Basic Styles
+/* d. Default and Basic Styles
       Adapted from:
       Skeleton CSS Framework - http://www.getskeleton.com/
       Typeplate Typographic Starter Kit - http://typeplate.com/
@@ -131,8 +162,6 @@ table {
 *,
 *:before,
 *:after {
-   -moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
    box-sizing: border-box;
 }
 
@@ -142,14 +171,13 @@ html {
 }
 
 body {
-   background: #182d42;
+   background: var(--bg-dark);
    font-family: 'opensans-regular', sans-serif;
    font-weight: normal;
    font-size: 15px;
    line-height: 30px;
-	color: #D0D3D6;
-
-   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	color: var(--text-primary);
+   -webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 }
 
@@ -158,7 +186,7 @@ body {
 --------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5 {
-   color: #D0D3D6;
+   color: var(--text-primary);
 	font-family: 'opensans-bold', sans-serif;
    font-weight: normal;
 }
@@ -179,7 +207,7 @@ h6 { font-size: 14px; line-height: 20px; }
 .section-subtitle {
   max-width: 640px;
   margin-top: 0.75rem;
-  color: #888;
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -190,8 +218,6 @@ p.lead {
    margin-bottom: 18px;
 }
 
-/* for 'em' and 'strong' tags, font-size and line-height should be same with
-the body tag due to rendering problems in some browsers */
 em { font: 15px/30px 'opensans-italic', sans-serif; }
 strong, b { font: 15px/30px 'opensans-bold', sans-serif; }
 small { font-size: 11px; line-height: inherit; }
@@ -209,7 +235,6 @@ blockquote:before {
    line-height: 0px;
    margin: 0;
    font-family: arial, sans-serif;
-
    position: absolute;
    top:  30px;
 	left: 0;
@@ -285,14 +310,14 @@ abbr:hover { cursor: help; }
 	margin: 0;
 	padding: 14px 6px 0 0;
 	font-size: 84px;
-	font-family: /* Copperplate */ 'opensans-bold', sans-serif;
+	font-family: 'opensans-bold', sans-serif;
    line-height: 60px;
 	text-indent: 0;
 	background: transparent;
 	color: inherit;
 }
 
-hr { border: solid #E3E3E3; border-width: 1px 0 0; clear: both; margin: 11px 0 30px; height: 0; }
+hr { border: solid var(--border-color); border-width: 1px 0 0; clear: both; margin: 11px 0 30px; height: 0; }
 
 
 /*  3. Links  ------------------------------------------------------- */
@@ -301,10 +326,6 @@ a, a:visited {
    text-decoration: none;
    outline: 0;
    color: #11b066;
-
-   -webkit-transition: color .3s ease-in-out;
-   -moz-transition: color .3s ease-in-out;
-   -o-transition: color .3s ease-in-out;
    transition: color .3s ease-in-out;
 }
 a:hover, a:focus { color: #313131; }
@@ -328,135 +349,6 @@ li { line-height: 18px; margin-bottom: 12px; }
 ul.large li { }
 li p { }
 
-/* ---------------------------------------------------------------------
-/*  Stats Tab Markup
-
-    <ul class="stats-tabs">
-		<li><a href="#">[value]<b>[name]</b></a></li>
-	 </ul>
-
-    Extend this object into your markup.
-/*
-/* --------------------------------------------------------------------- */
-.stats-tabs {
-   padding: 0;
-   margin: 24px 0;
-}
-.stats-tabs li {
-	display: inline-block;
-	margin: 0 10px 18px 0;
-	padding: 0 10px 0 0;
-	border-right: 1px solid #ccc;
-}
-.stats-tabs li:last-child {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-.stats-tabs li a {
-	display: inline-block;
-	font-size: 22px;
-	font-family: 'opensans-bold', sans-serif;
-   border: none;
-   color: #313131;
-}
-.stats-tabs li a:hover {
-   color:#11ABB0;
-}
-.stats-tabs li a b {
-	display: block;
-	margin: 6px 0 0 0;
-	font-size: 13px;
-	font-family: 'opensans-regular', sans-serif;
-   color: #8B9798;
-}
-
-/* definition list */
-dl { margin: 12px 0; }
-dt { margin: 0; color:#11ABB0; }
-dd { margin: 0 0 0 20px; }
-
-/* Lining Definition Style Markup */
-.lining dt,
-.lining dd {
-	display: inline;
-	margin: 0;
-}
-.lining dt + dt:before,
-.lining dd + dt:before {
-	content: "\A";
-	white-space: pre;
-}
-.lining dd + dd:before {
-	content: ", ";
-}
-.lining dd:before {
-	content: ": ";
-	margin-left: -0.2em;
-}
-
-/* Dictionary Definition Style Markup */
-.dictionary-style dt {
-	display: inline;
-	counter-reset: definitions;
-}
-.dictionary-style dt + dt:before {
-	content: ", ";
-	margin-left: -0.2em;
-}
-.dictionary-style dd {
-	display: block;
-	counter-increment: definitions;
-}
-.dictionary-style dd:before {
-	content: counter(definitions, decimal) ". ";
-}
-
-/* Pagination */
-.pagination {
-   margin: 36px auto;
-   text-align: center;
-}
-.pagination ul li {
-   display: inline-block;
-   margin: 0;
-   padding: 0;
-}
-.pagination .page-numbers {
-   font: 15px/18px 'opensans-bold', sans-serif;
-   display: inline-block;
-   padding: 6px 10px;
-   margin-right: 3px;
-   margin-bottom: 6px;
-	color: #6E757C;
-	background-color: #E6E8EB;
-
-	-webkit-transition: all 200ms ease-in-out;
-	-moz-transition: all 200ms ease-in-out;
-	-o-transition: all 200ms ease-in-out;
-	-ms-transition: all 200ms ease-in-out;
-	transition: all 200ms ease-in-out;
-
-   -moz-border-radius: 3px;
-   -webkit-border-radius: 3px;
-   -khtml-border-radius: 3px;
-	border-radius: 3px;
-}
-.pagination .page-numbers:hover {
-   background: #838A91;
-   color: #fff;
-}
-.pagination .current,
-.pagination .current:hover {
-   background-color: #11ABB0;
-   color: #fff;
-}
-.pagination .inactive,
-.pagination .inactive:hover {
-   background-color: #E6E8EB;
-	color: #A9ADB2;
-}
-.pagination .prev, .pagination .next {}
 
 /*  5. Images  --------------------------------------------------------- */
 
@@ -467,35 +359,26 @@ img {
 img.pull-right { margin: 12px 0px 0px 18px; }
 img.pull-left { margin: 12px 18px 0px 0px; }
 
+
 /*  6. Buttons  --------------------------------------------------------- */
 
 .button,
-.button:visited,
 button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
    font: 16px/30px 'opensans-bold', sans-serif;
-   background: #f78635;
+   background: var(--primary-color);
    display: inline-block;
 	text-decoration: none;
    letter-spacing: 0;
-   color: #02101f;
+   color: #fff;
 	padding: 12px 20px;
 	margin-bottom: 18px;
    border: none;
    cursor: pointer;
    height: auto;
-
-   -webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-
-   -moz-border-radius: 3px;
-   -webkit-border-radius: 3px;
-   -khtml-border-radius: 3px;
+   transition: all .2s ease-in-out;
    border-radius: 3px;
 }
 
@@ -504,7 +387,7 @@ button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover {
-   background: #f78635;
+   background: #3d4145;
    color: #fff;
 }
 
@@ -513,7 +396,7 @@ button:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active {
-   background: #f78635;
+   background: var(--primary-color);
    color: #fff;
 }
 
@@ -557,12 +440,7 @@ select {
    line-height: 24px;
 	color: #647373;
 	background: #D3D9D9;
-
 }
-
-/* select { padding: 0;
-   width: 220px;
-   } */
 
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -595,8 +473,16 @@ input[type="radio"] {
 
 input[type="checkbox"] { display: inline; }
 
+/* Honeypot for spam prevention */
+.honeypot {
+   display: none !important;
+   visibility: hidden !important;
+   position: absolute !important;
+   left: -9999px !important;
+}
+
 /* ------------------------------------------------------------------ */
-/* d. Grid
+/* e. Grid
 ---------------------------------------------------------------------
    gutter = 40px.
 /* ------------------------------------------------------------------ */
@@ -608,8 +494,6 @@ input[type="checkbox"] { display: inline; }
    max-width: 1020px;
    margin: 0 auto;
 }
-/* fixed width for IE8 */
-.ie .row { width: 1000px ; }
 
 .narrow .row { max-width: 980px; }
 
@@ -786,7 +670,7 @@ properly.
 }
 
 /* ------------------------------------------------------------------ */
-/* e. Others
+/* f. Others
 /* ------------------------------------------------------------------ */
 
 /*  1. Clearing
@@ -819,7 +703,3 @@ properly.
 	margin-right: auto !important;
 	text-align: center !important;
 }
-
-
-
-
