@@ -1,0 +1,121 @@
+/* ==================================================
+   Home — minimal single-screen draft
+   ================================================== */
+
+* { box-sizing: border-box; }
+
+html, body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   background: #0a0a0a;
+}
+
+body {
+   font-family: 'opensans-light', Arial, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+.stage {
+   position: relative;
+   min-height: 100vh;
+   min-height: 100svh;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   background: url(../images/background.png) no-repeat center center;
+   background-size: cover;
+   overflow: hidden;
+}
+
+/* Gentle top-down gradient so the name/line read cleanly without
+   burying the forest — the orange tree stays untouched below. */
+.stage:before {
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0;
+   height: 55%;
+   background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0) 100%);
+   pointer-events: none;
+}
+
+.intro {
+   position: relative;
+   z-index: 2;
+   padding: 8vh 8vw 0;
+}
+
+.intro .eyebrow {
+   margin: 0 0 18px;
+   font-family: 'opensans-semibold', Arial, sans-serif;
+   font-size: 22px;
+   letter-spacing: 4px;
+   text-transform: uppercase;
+   color: #f09546;
+}
+
+.intro h1 {
+   margin: 0;
+   max-width: 30ch;
+   font-family: 'librebaskerville-regular', Georgia, serif;
+   font-weight: normal;
+   font-style: italic;
+   font-size: 28px;
+   line-height: 1.4;
+   color: #fdfdfd;
+   text-shadow: 0 2px 18px rgba(0,0,0,0.45);
+}
+
+.contact {
+   position: absolute;
+   z-index: 2;
+   right: 8vw;
+   bottom: 6vh;
+}
+
+.contact a {
+   font-family: 'opensans-semibold', Arial, sans-serif;
+   font-size: 15px;
+   letter-spacing: 2.5px;
+   text-transform: uppercase;
+   color: #d8863f;
+   text-decoration: none;
+   border-bottom: 1px solid rgba(216,134,63,0.45);
+   padding-bottom: 4px;
+   transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.contact a:hover {
+   color: #f09546;
+   border-color: #f09546;
+}
+
+.more {
+   display: none;
+   position: absolute;
+   z-index: 2;
+   left: 8vw;
+   bottom: 6vh;
+}
+
+.more a {
+   font-family: 'opensans-semibold', Arial, sans-serif;
+   font-size: 11px;
+   letter-spacing: 2.5px;
+   text-transform: uppercase;
+   color: rgba(255,255,255,0.4);
+   text-decoration: none;
+   transition: color 0.25s ease;
+}
+
+.more a:hover {
+   color: rgba(255,255,255,0.75);
+}
+
+@media (max-width: 700px) {
+   .intro { padding: 9vh 7vw 0; }
+   .intro h1 { font-size: 24px; max-width: 24ch; line-height: 1.45; }
+   .contact { right: 7vw; bottom: 5vh; }
+   .more { left: 7vw; bottom: 5vh; }
+}
