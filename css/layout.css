@@ -783,6 +783,7 @@ ul#nav li a:hover, ul#nav li a:focus {
 }
 /* Title: quicker + smaller motion */
 .reveal-title {
+  display: inline-block;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .45s ease, transform .45s ease;

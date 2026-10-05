@@ -113,6 +113,56 @@ body {
    color: rgba(255,255,255,0.75);
 }
 
+/* "Found it" — the orange tree hides a little reveal.
+   Position/size are set by js/home.js to track the cover-cropped background. */
+.tree-spot {
+   position: absolute;
+   z-index: 1;
+   cursor: url(../images/magnifier.svg) 13 13, zoom-in;
+   -webkit-tap-highlight-color: transparent;
+}
+
+.tree-spot:before {
+   content: '';
+   position: absolute;
+   inset: -35%;
+   border-radius: 50%;
+   background: radial-gradient(ellipse at center, rgba(240,149,70,0.38) 0%, rgba(240,149,70,0.12) 45%, rgba(240,149,70,0) 70%);
+   mix-blend-mode: screen;
+   opacity: 0;
+   transition: opacity 0.6s ease;
+   pointer-events: none;
+}
+
+.tree-caption {
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-top: 10px;
+   transform: translate(-50%, 6px);
+   white-space: nowrap;
+   font-family: 'librebaskerville-italic', Georgia, serif;
+   font-size: 14px;
+   color: #f09546;
+   text-shadow: 0 1px 10px rgba(0,0,0,0.85);
+   opacity: 0;
+   transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+   pointer-events: none;
+}
+
+.tree-spot.found:before { opacity: 1; }
+.tree-spot.found .tree-caption { opacity: 1; transform: translate(-50%, 0); }
+
+@media (hover: hover) {
+   .tree-spot:hover:before { opacity: 1; }
+   .tree-spot:hover .tree-caption { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .tree-spot:before,
+   .tree-caption { transition: none; }
+}
+
 @media (max-width: 700px) {
    .intro { padding: 9vh 7vw 0; }
    .intro h1 { font-size: 24px; max-width: 24ch; line-height: 1.45; }

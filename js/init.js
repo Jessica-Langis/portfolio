@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
 
   form.addEventListener('submit', async (e) => {
     // Honeypot
-    const hp = form.querySelector('input[name="company"]');
+    const hp = form.querySelector('input[name="_gotcha"]');
     if (hp && hp.value.trim() !== '') {
       e.preventDefault();
       return;
