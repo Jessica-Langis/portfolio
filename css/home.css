@@ -171,36 +171,6 @@ body {
    50%, 100% { opacity: 0; transform: scale(0.3) rotate(45deg); }
 }
 
-/* Hover: a soft, diffuse warmth along the tree's edge — like sunlight
-   bounced onto a far wall, not a drawn line. A blurred stroke on the
-   silhouette, kept within ~3px of the perimeter. */
-.tree-outline {
-   position: absolute;
-   inset: 10px; /* matches PAD in js/home.js, so the viewBox maps onto the tree */
-   width: calc(100% - 20px);
-   height: calc(100% - 20px);
-   overflow: visible;
-   filter: blur(1px);
-   mix-blend-mode: screen;
-   opacity: 0;
-   transition: opacity 1.2s ease;
-   pointer-events: none;
-}
-
-.tree-outline polygon {
-   fill: none;
-   stroke: rgba(255,206,140,0.32);
-   stroke-width: 2px;
-   stroke-linejoin: round;
-   vector-effect: non-scaling-stroke;
-}
-
-.tree-spot.found .tree-outline { opacity: 1; }
-
-@media (hover: hover) {
-   .tree-spot:hover .tree-outline { opacity: 1; }
-}
-
 /* Reduced motion: keep a gentle fade, drop the scale/spin */
 @media (prefers-reduced-motion: reduce) {
    .sparkle { animation-name: tree-twinkle-fade; }
